@@ -1,5 +1,5 @@
 [package]
-name = "lists"
+name = "alliances"
 version = "0.1.0"
 authors = ["Paul Plessing <paul.plessing@block42.tech>"]
 edition = "2018"
