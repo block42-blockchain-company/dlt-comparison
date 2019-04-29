@@ -1,0 +1,58 @@
+useful links to understand holochain:
+https://medium.com/altcoin-magazine/todays-crypto-highlight-holochain-explained-bea6827d172b
+https://www.youtube.com/watch?v=hyCtYrHJebs
+https://www.youtube.com/watch?v=g4ZpUop_Xh8
+
+Holochain is a protocol to enable peer to peer applications.
+Other than in blockchain, holochain doesn't provide a global
+consensus, but more a shared consensus between parties that interact
+with each other. Because of that, holochain doesn't face the problems
+that blockchains face, like scalability or transaction speed.
+Each application powered by holochain, is itself its own network. 
+So there is not one chain like in ethereum for example, but a separate
+isolated chain for every dApp.
+
+A technical overview:
+Each user is a node. Instead of sharing consensus about data, all the nodes share 
+consensus about the validation rules of transactions. So the dApp is
+basically a set of rules, on what kind of transactions are valid and
+what are not.
+Each node stores a hashchain of its own transaction on his own device.
+All transactions are signed by the nodes public key. 
+To share transactions with the network, the network is organized as 
+a distributed hashtable (DHT). So if a node makes a transactions that is 
+needed for interacting with the network, the two interacting parties
+send it to several other nodes which public keys are similar to the hash of the to be 
+stored transaction. That way it's possible to detect fraud, and not losing
+the transaction if a single node goes offline.
+
+Let's take the classical problem of double spending (a user issues two 
+transactions spending all his funds, though he could only spend it once):
+Eve sends a signed transaction spending all her money to Alice to receive goods
+from Alice in return. Some time later, Eve sends another signed transaction to Bob,
+where she tries to spend the money she already sent to Alice. Because in each transaction 
+the hash of the previous transaction is noted, Bob can look up the previous
+transaction on the DHT. In this previous transaction, the hash of the transaction
+before this previous transaction can be found, and so on. Once Bob finds the
+transaction of Eve to Alice, he knows that Eve in reality doesn't have money anymore,
+and reject Eve's payment. In addition, he will show the rest of the network 
+this malicious transaction signed by Eve, and every node will stop communicating
+with Eve because of this incident. This way, the network kicks out dishonest users.
+
+One final thing to note: when a node goes offline, i.e. other nodes do not receive
+messages from this node anymore, they will mark it as offline. The transactions that were
+stored on this node, will then be duplicated onto other nodes that are online.
+
+Implementation:
+The implementation of our game of thrones use case, was done with the 
+help of holochains development kit (hdk) for rust. We followed the installation
+steps from the quickstart tutorial (https://developer.holochain.org/start.html)
+and developed our dApp with the help of the guidebook (https://developer.holochain.org/guide/latest/first_steps.html).
+If you never programmed with rust before, it is recommended to do a rust crash course beforehand, 
+so you can differentiate between rust specific syntax and holochain specific syntax.
+Holochain apps are made of one or more so called "zomes", they are something 
+like modules in javascript. Each zome provides logic. 
+Every zome is compiled to WebAssembly, therefore one can write collaborating zomes
+in many different programming languages, and not only rust.
+The zomes get compiled into a *.dna.json file, which contains the zomes code as WebAssembly.
+To test this dna file, we used the node testing framework Tape.js.
