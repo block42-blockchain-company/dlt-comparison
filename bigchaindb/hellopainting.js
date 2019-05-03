@@ -80,7 +80,7 @@ function transferOwnership(txCreatedID, newOwner) {
 
 async function main() {
   const createTxID = await createPaint()
-  transferOwnership(createTxID, bob)
+  await transferOwnership(createTxID, bob)
   
   console.log("TERMINATOR TERMINATED SUCCESSFULLY")
 }
