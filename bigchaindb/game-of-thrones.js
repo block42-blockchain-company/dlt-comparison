@@ -1,4 +1,4 @@
-const bip39 = require('bip39')
+//const bip39 = require('bip39')
 const BigchainDB = require('bigchaindb-driver')
 
 const API_PATH = 'https://test.bigchaindb.com/api/v1/'
@@ -47,7 +47,7 @@ async function createAlliance(alliance, issuer) {
       // Issuers
       issuer.publicKey
   )
-  // The owner of the painting signs the transaction
+  // The owner of the alliance signs the transaction
   const txSigned = BigchainDB.Transaction.signTransaction(txCreateAlliance,
     issuer.privateKey)
 
@@ -76,7 +76,7 @@ async function createFamily(family, issuer) {
       // Issuers
       issuer.publicKey
   )
-  // The owner of the painting signs the transaction
+  // The owner of the family signs the transaction
   const txSigned = BigchainDB.Transaction.signTransaction(txCreateFamily,
     issuer.privateKey)
 
@@ -105,7 +105,7 @@ function transferOwnership(txCreatedID, currentOwner, newOwner) {
                   datetime: new Date().toString(),
               }
           )
-          // Sign with the key of the owner of the painting (currentOwner)
+          // Sign with the key of the owner of the family (currentOwner)
           const signedTransfer = BigchainDB.Transaction
               .signTransaction(createTranfer, currentOwner.privateKey)
           return conn.postTransactionCommit(signedTransfer)
@@ -135,7 +135,7 @@ function updateMetadata(txCreatedID, owner, newFamilies) {
                   families: newFamilies
               }
           )
-          // Sign with the key of the owner of the painting
+          // Sign with the key of the owner of the alliance
           const signedTransfer = BigchainDB.Transaction
               .signTransaction(createTranfer, owner.privateKey)
           return conn.postTransactionCommit(signedTransfer)
@@ -146,6 +146,15 @@ function updateMetadata(txCreatedID, owner, newFamilies) {
           console.log("new Families: ", newFamilies)
       })
 }
+
+async function getAssetByAssetName(assetName) {
+  return await conn.searchAssets(assetName)
+}
+
+async function getAssetByMetaData(metaData) {
+  return await conn.searchMetadata(metaData)
+}
+
 
 async function main() {
   const khaleesi = new BigchainDB.Ed25519Keypair(Buffer.from("hahahahabubububuhahahahabubububu"))
@@ -182,11 +191,8 @@ async function main() {
 
   await updateMetadata(khaleesiAllianceTxID, khaleesi, familiesKhaleesi)
   await updateMetadata(cerceiAllianceTxID, cercei, familiesCercei)
-
-  /* const createTxID = await createPaint()
-  transferOwnership(createTxID, cercei) */
 }
 
-main()
+//main()
 
 
