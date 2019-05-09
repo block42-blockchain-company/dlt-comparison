@@ -1,0 +1,47 @@
+BigchainDB calls itself the blockchain database. On their website https://www.bigchaindb.com/ 
+they state: 
+"With high throughput, low latency, powerful query functionality, decentralized control, immutable data storage 
+and built-in asset support, BigchainDB is like a database with blockchain characteristics."
+So what is BigchainDB actually?
+BigchainDB is a database that stores data in tables decentrally using crypto qualities..
+That way, data can't be lost easyily or manipulated, but it can be queried fast like in a typical database.
+It is not a not blockchain where you can implement logic like the well known smart 
+contracts on, nor is it a decentralized 
+file storage like IPFS. It is an additional part in any development stack
+as can be seen on their wonderful picture:
+https://cdn-images-1.medium.com/max/1600/1*jz8Z8-oD_wqlvUNj51AHVg.png
+To implement an application, one still needs a processing layer and a platform layer, and
+they can then be connected to BigchainDB. However, what you can do in BigchainDB natively,
+is creating assets, divisible and non-divisible. Although we didn't look much into it,
+the Role-based access control supported by BigchainDB is very neat.
+
+Technical overview:
+How do they accomplish the task of storing a common agreed on state across
+nodes in tables?
+They do this by utilizing Tendermint (https://www.tendermint.com/) 
+for BigchainDB's blockchain characteristics. Tendermint
+is an open source blockchain that uses Tendermint Core as the consensus engine
+and Application BlockChain Interface (ABCI) as the api between an application
+written in any programming language and the Tendermint blockchain.
+For the database part, BigchainDB uses MongoDB. 
+Basically, on one end there is Tendermint for the distribution of canonically ordered 
+transactions between nodes, there is MongoDB for storing the shared state
+in tables on the other end, and BigchainDB in the middle for coordinating
+everything. 
+
+Implementation:
+We used the javascript library of BigchainDB. The realization of a sample
+program as described on their official website 
+(https://www.bigchaindb.com/developers/guide/tutorial-piece-of-art/), was harder
+than expected. The downloaded npm module was somehow not the latest stable
+release, and didn't work as expected. Fortunately, the guys from
+BigchainDB's gitter responded fast (thanks to Troy McConaghy @ttmc), and told us to specify a stable release version
+when downloading the module.
+Second issue was that in order to generate a 'Ed25519Keypair' some file had to be changed according to 
+https://github.com/bigchaindb/js-bigchaindb-driver/issues/268. But once that was done,
+we were ready to go. Our game of thrones use case was again just modeling two alliances, Khalessi and
+Cercei, assign them different families, and transfer the membership of the families between the alliances.
+The syntax of creating transactions has to be followed, other than that there we not many
+things to watch out for. Coding with BigchainDB is straight forward, no bad surprises.
+Writing and reading to the testnet is fast and works well.
+To test our code, we used the node testing framework mocha.js and the node assertion library chai.js.

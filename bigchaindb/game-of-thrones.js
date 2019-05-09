@@ -1,4 +1,3 @@
-//const bip39 = require('bip39')
 const BigchainDB = require('bigchaindb-driver')
 
 const API_PATH = 'https://test.bigchaindb.com/api/v1/'
