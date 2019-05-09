@@ -20,9 +20,10 @@ what are not.
 Each node stores a hashchain of its own transaction on his own device.
 All transactions are signed by the nodes public key. 
 To share transactions with the network, the network is organized as 
-a distributed hashtable (DHT). So if a node makes a transactions that is 
+a distributed hashtable (DHT). So if a node makes a transaction that is 
 needed for interacting with the network, the two interacting parties
-send it to several other nodes which public keys are similar to the hash of the to be 
+send it to several other nodes. They send it to other nodes,
+which public keys are similar to the hash of the to be 
 stored transaction. That way it's possible to detect fraud, and not losing
 the transaction if a single node goes offline.
 
@@ -40,8 +41,11 @@ this malicious transaction signed by Eve, and every node will stop communicating
 with Eve because of this incident. This way, the network kicks out dishonest users.
 
 One final thing to note: when a node goes offline, i.e. other nodes do not receive
-messages from this node anymore, they will mark it as offline. The transactions that were
-stored on this node, will then be duplicated onto other nodes that are online.
+messages from this node anymore, they will mark it as offline. Transactions have to 
+be stored redundantly on more nodes than a specific threshold of nodes, for example on 5 nodes.
+If a node goes offline, the network checks on how many nodes a transaction that was formerly stored
+on that offline node is accessible. If it is only stored on 4 other nodes, the network automatically copies this
+transaction to a new node, so that there are 5 copies again in the network.
 
 Implementation:
 The implementation of our game of thrones use case, was done with the 

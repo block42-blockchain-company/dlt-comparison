@@ -41,7 +41,7 @@ Second issue was that in order to generate a 'Ed25519Keypair' some file had to b
 https://github.com/bigchaindb/js-bigchaindb-driver/issues/268. But once that was done,
 we were ready to go. Our game of thrones use case was again just modeling two alliances, Khalessi and
 Cercei, assign them different families, and transfer the membership of the families between the alliances.
-The syntax of creating transactions has to be followed, other than that there we not many
+The syntax of creating transactions has to be followed, other than that there were not many
 things to watch out for. Coding with BigchainDB is straight forward, no bad surprises.
 Writing and reading to the testnet is fast and works well.
 To test our code, we used the node testing framework mocha.js and the node assertion library chai.js.
