@@ -19,19 +19,25 @@ basically a set of rules, on what kind of transactions are valid and
 what are not.
 Each node stores a hashchain of its own transaction on his own device.
 All transactions are signed by the nodes public key. 
-To share transactions with the network, the network is organized as 
-a distributed hashtable (DHT). So if a node makes a transaction that is 
-needed for interacting with the network, the two interacting parties
-send it to several other nodes. They send it to other nodes,
-which public keys are similar to the hash of the to be 
-stored transaction. That way it's possible to detect fraud, and not losing
+To share the transaction headers and the transactions itself with the network, the 
+network is organized as a distributed hashtable (DHT). The data (transactions or headers)
+is sent to other nodes, which public keys are similar to the hash of the data.
+That way it's possible to find and follow any stored data and to detect fraud, as well as not losing
 the transaction if a single node goes offline.
+In the event that a node issues
+a new transaction, first the transaction gets added to the nodes own hachchain. Then, the header
+of this transaction is sent to several other nodes.
+If the transaction is needed for interacting with the network, the two interacting parties
+also have to send the transaction itself to the network. As we can see,
+it's not mandatory to share the content of the transaction if it doesn't concern other nodes, only its header.
+With this, it's possible to store personal data with holochain without violating
+any data protection law, because transactions only have to be stored locally on the users device.
 
 Let's take the classical problem of double spending (a user issues two 
 transactions spending all his funds, though he could only spend it once):
 Eve sends a signed transaction spending all her money to Alice to receive goods
 from Alice in return. Some time later, Eve sends another signed transaction to Bob,
-where she tries to spend the money she already sent to Alice. Because in each transaction 
+where she tries to spend the money she already sent to Alice. Because in each transaction header
 the hash of the previous transaction is noted, Bob can look up the previous
 transaction on the DHT. In this previous transaction, the hash of the transaction
 before this previous transaction can be found, and so on. Once Bob finds the
