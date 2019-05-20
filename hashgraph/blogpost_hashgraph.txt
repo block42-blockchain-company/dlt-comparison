@@ -1,0 +1,53 @@
+Hashgraph is a consensus algorithm to facilitate decentralized applications. 
+It's different than other distributed ledger technologies and it is patented by the company Swirlds.
+While the hashgraph algorithm enables private networks, Hedera Hashgraph is the project that tries
+to make a public network using hashgraph.
+Regarding Hedera Hashgraph, there will be 39 nodes that are governed by fortune 500 companies.
+
+Technical overview:
+To get a complete understanding of how hashgraph works, head over to http://www.swirlds.com/downloads/SWIRLDS-TR-2016-02.pdf.
+There the process of aquiring consensus is wonderfully explained with pictures.
+In blockchain, transactions are organized in blocks. In hashgraph, transactions are grouped into events.
+An event made by a node (e.g. Alice) is sent to other nodes via the gossiping mechanism that is widely used in decentralized architectures.
+Once another node (e.g. Bob) receives the event, he makes an event indicating that he received Alice's event.
+Bob's event now includes his transactions, a timestamp, the hash of Alice's event and also the hash of Bob's last event.
+Therefore Bob's new event is connected to his own last event and Alice's event. These connections provide immutability, 
+because a modification in an event later on can be spotted easily by the modified hash.
+Bob sends his new event to the other nodes, and the process repeats for all nodes.
+The process to achieve consenus is fairly complicated. Nodes vote on whether they received former events.
+The votes have to be collected, and it's checked whether more than 2/3 of all nodes can see the former event.
+If yes, the median of the timestamps of the event received by the different nodes is calculated, and all nodes have
+consensus about the timestamp. Agreed upon timestamps make it possible to order events and therefore
+transactions. With that we have a global state of consensus.
+
+Implementation:
+There are two sdk's, one for swirlds (https://www.swirlds.com/download/) and one for hedera hashgraph (https://github.com/hashgraph/hedera-sdk-java).
+Swirlds sdk provides java classes to work with the consenus algorithm called "hashgraph".
+Hedera hashgraph is a public network based on hashgraph.
+To interact with Hedera hashgraph, one needs to be a registered testnet user. As of May 2019, testnet registration was closed.
+Swirlds can be downloaded any time, to build a private network. Therefore we used swirlds for our use case.
+Caution: as the hashgraph algorithm is patented, the swirlds sdk is only allowed to be used for local testing purposes. 
+To use it in production, one has to contact swirlds directly.
+
+You need to have java and maven installed for compiling and running any programs via swirlds sdk.
+For a project, two files are needed. One that ends with *Main.java, and one that ends with *State.java.
+The state class describes how data can be stored and sent in transactions. It also defines the current
+state of the data, i.e. it represents the latest modification done via any transactions. 
+The main class represents the nodes sending transactions. Once an transaction is agreed upon, the state
+class includes the change initiated by the transaction in it's member variables. The nodes using the main class
+can always retrieve the current state from the state class.
+The underlying hashgraph logic is implemented by the sdk, thus the developer doesn't have to worry about 
+gossip or consensus.
+
+Hashgraph is an exciting consensus algorithm for decentralized networks. However, it wasn't that easy to implement
+our game-of-thrones use case. It was hard to digest how the main and the state class interact with each other.
+Especially which data type the content of the transactions has to be, so that the state class can read it.
+Coding with this sdk felt like walking in the jungle, instead of strolling a road. We held our sharp machete - our coding skills - 
+tight in our hands, but we didn't know whether this big coconut in front of us would explode if we tried to smash it, 
+or whether this wood block is just wood or a giant snake. Somehow, we still found our way to the beautiful waterfall.
+We really used the dumbest possible implementation of our use case with alliances and families. That was because
+we severely lacked understanding of how to interact meaningful with the sdk. 
+
+Thankfully, the demos included in the sdk helped us a lot. Other than that, there wasn't much content on how
+to work with swirlds. We believe that this is because hashgraph is patented and its use is restricted. Serious developers probably
+think twice whether they want to develop with a technology which commercial use could be prohibited.
