@@ -1,0 +1,5 @@
+module:swirlds.platform
+com.swirlds.crypto
+com.swirlds.fs
+com.swirlds.map
+com.swirlds.platform

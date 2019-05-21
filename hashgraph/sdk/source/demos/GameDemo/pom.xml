@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ (c) 2016-2018 Swirlds, Inc.
+  ~
+  ~ This software is the confidential and proprietary information of
+  ~ Swirlds, Inc. ("Confidential Information"). You shall not
+  ~ disclose such Confidential Information and shall use it only in
+  ~ accordance with the terms of the license agreement you entered into
+  ~ with Swirlds.
+  ~
+  ~ SWIRLDS MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+  ~ THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+  ~ TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+  ~ PARTICULAR PURPOSE, OR NON-INFRINGEMENT. SWIRLDS SHALL NOT BE LIABLE FOR
+  ~ ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+  ~ DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
+  -->
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Required Maven Version -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent Configuration -->
+	<parent>
+		<groupId>SwirldsPlatform</groupId>
+		<artifactId>platform-apps</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<!-- Project Configuration -->
+	<groupId>GameDemo</groupId>
+	<artifactId>GameDemo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<!-- Project Properties -->
+	<properties>
+		<!-- Maven and Java Configuration -->
+		<mdep.skip>false</mdep.skip>
+
+		<app.repo>${project.baseUri}../../../sdk/data/repos/app/</app.repo>
+		<platform.repo>${project.baseUri}../../../sdk/data/repos/platform/</platform.repo>
+		<sdk.dir>${project.basedir}/../../../sdk</sdk.dir>
+
+		<!-- Swirlds app name & optional package prefix -->
+		<app.name>GameDemo</app.name>
+		<app.prefix></app.prefix>
+	</properties>
+
+	<!-- Profiles -->
+	<profiles>
+		<profile>
+			<id>production</id>
+			<activation>
+				
+				<activeByDefault>true</activeByDefault>
+				
+			</activation>
+			<properties>
+				<app.repo>${project.baseUri}../../../data/repos/app/</app.repo>
+				<platform.repo>${project.baseUri}../../../data/repos/platform/</platform.repo>
+				<sdk.dir>${project.basedir}/../../..</sdk.dir>
+			</properties>
+		</profile>
+	</profiles>
+</project>

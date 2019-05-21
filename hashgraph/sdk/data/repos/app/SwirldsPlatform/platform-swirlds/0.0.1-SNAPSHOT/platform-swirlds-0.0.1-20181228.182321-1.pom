@@ -1,0 +1,38 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>SwirldsPlatform</groupId>
+	<artifactId>platform-swirlds</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<!-- Maven and Java Configuration -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>10</maven.compiler.source>
+		<maven.compiler.target>10</maven.compiler.target>
+
+		<app.repo>${project.baseUri}sdk/data/repos/app/</app.repo>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>app.repo</id>
+			<url>${app.repo}</url>
+		</repository>
+	</distributionManagement>
+
+	<modules>
+		<!-- Main System Packages -->
+		<module>swirlds</module>
+		<module>platform</module>
+		<module>platform-apps</module>
+
+		<!-- Auxiliary Packages -->
+		<module>graphing/cli</module>
+
+		<!--<module>util</module>-->
+		<!--<module>fc-db</module>-->
+
+	</modules>
+</project>

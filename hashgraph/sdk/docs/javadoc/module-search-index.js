@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"swirlds.platform"}]
