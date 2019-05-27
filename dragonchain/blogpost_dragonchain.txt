@@ -1,0 +1,40 @@
+Dragonchain. Finally a chain worthy of our dragonborn queen Khaleesi c:
+Dragonchain labels itself as "Blockchain as a Service". The chain provides an
+infrastructure, to easily use blockchain characteristics in applications.
+It's very flexible and at the same time immutable. A main feature of this distributed
+ledger technology, is the interoperability between existing blockchains. This is done
+with the help of the patented interchain. Interchain is a smart contract that can watch public blockchains 
+and react to events on them by firing transactions on these blockchains itself.
+
+Overview from a technical side (explained in their words: https://dragonchain.com/assets/Dragonchain-Architecture.pdf):
+We feel like dragonchain brings the dimensions of blockchains
+to a whole new level. To be exact, to five new levels. In dragochain,
+there are 5 layers of verification. They are called Level 1 to Level 5.
+Each level contributes a different function to the whole infrastructure.
+Level 1 is the business logic.
+Level 2 verifies level 1 transactions.
+Level 3 makes sure that level 2 verifications come from diverse nodes.
+Level 4 validates level 3 checks similar to a notary service.
+Level 5 is the gateway to public blockchains, posting a hash of a block or transaction to the Bitcoin blockchain for example.
+
+How can these levels be understood?
+A level just indicates what is done or verified. A node that is handling level 1 functionality e.g. posts transactions of a user. A node
+with level 2 functionality verifies level 1 transactions. What is interesting, is that each level uses different blockchains. 
+Not only that, but even within a level different blockchains are used. The term "blockchain of blockchains" is very appropriate in this context.
+Example:
+A user can create a new blockchain that only he runs. Transactions are put together into blocks, which 
+are forwarded to level 2 nodes. Level 2 verifies the transaction, puts these verifications in blocks of its own blockchain, and
+sends the block to level 3. A level 3 node makes sure that there are multiple verifications of level 1 blocks done by level 2 nodes, from different
+locations. If there are diverse verifications, level 3 indicates this in a transaction that he puts himself in a block and appends it to his blockchain.
+The notary function of level 4 and the public chain gateway of level 5 can only be done by nodes trusted by the dragonchain company.
+Level 4 just adds an additional signature to level 3 blocks. Level 5 finally can monitor other chains like NEO, and invoke smart contracts on them.
+
+Interestingly, as noted above, a level isn't restricted to use only one blockchain. Instead, there is a chain for every node, for every level.
+As explained by Joe Roets (@j0j0r0) in dragochain's telegram developer chat, this architecture makes dragonchain more diverse, secure and
+decentralized, and therefore harder to compromise. 
+
+What we haven't talked about yet, is the privacy part. In dragochain level 1 transactions, the payload of a transaction 
+can be removed. That way, only the transaction header will be validated by level 2, and sensible information can stay private. 
+Firstly, this enables that you can prove to anyone that your data was unaltered when you disclose the data at a later point. 
+Secondly, it provides a convenient and possibly pay per use way to offer your data to other nodes via a subscription data fee.
+
