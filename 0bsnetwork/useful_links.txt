@@ -1,0 +1,6 @@
+about data transactions:
+https://docs.0bsnetwork.com/technical-details/data-transaction
+.ride 0bs examples
+https://ide.0bsnetwork.com/
+.ride documentation
+https://docs.wavesplatform.com/en/ride/immutable-variables.html
