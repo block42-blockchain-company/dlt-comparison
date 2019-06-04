@@ -1,0 +1,42 @@
+Now let's take a look at 0bsNetwork.
+If you're not sure what the name indicates, let me enlighten you:
+it stands for "Zero Bullshit Network" - Nice! What is behind such an awesome name?
+
+0bsNetwork states that it's  the "blockchain for the real world". It is a fork of
+"the Waves platform, which itself is based on NXT, Scorex and Bitcoin-NG".  
+We got to talk with the team at the OEBB (austrian railways) hackathon in Vienna which was powered by 0bsNetwork.
+They told us that the difference to Waves is that the vision and final goal of 0bsNetwork is
+different. 0bsNetwork focuses on real world business applications, while the Waves community is more about moon culture.
+However, on the surface Waves and 0bsNetwork look quite similar.
+It is a blockchain that is really easy to use, and we had a good time implementing
+our game of thrones use case.
+
+Technical overview:
+0bsNetwork is a blockchain that uses a masternode architecture, facilitating a Proof-of-Stake consensus algorithm.
+To run a node, an account needs to hold at least 1000 Zbs coins (Zero Bullshit Coins), the custom currency of 0bsNetwork.
+This currency is needed to issue transactions, as the fees are paid in Zbs coins.
+On the surface, the creation of blocks happens in the classic blockchain fashion. First collecting transactions from
+the mempool, then grouping them to blocks and distributing them in the network.  
+0bsNetwork enables to write and use smart contracts using the custom functional programming language RIDE.
+What is special, is that accounts and assets can be "smart" as well. This happens by adding a RIDE script to the assets
+or account. Each time the account interacts with the network or the asset is used, the rules in the attached script get executed.
+That way, it's easy to implement custom behaviour like a multisignature account, or an asset that e.g. can only be sent to 
+specific addresses in a specific time frame.  
+Some behaviour that is often needed in blockchain applications is available as transaction types. Examples are the creation
+of a token, or the transfer of tokens to multiple receivers at once.
+Already included is also a decentralized exchange for 0bs tokens.
+
+Implementation:
+As we already implemented a use case at the hackathon in Vienna, we already had knowledge about 0bsNetwork.
+But even without any prior knowledge, interacting with 0bsNetwork is very easy and developer friendly.
+At the hackathon we used their python sdk, for this game of thrones use case we used the javascript sdk.
+As we forgot about some aspect of the blockchain, we asked in the telegram chat and got an immediate answer. 
+What we did, was simply issuing data transactions to the network. Their API makes it easy to query 
+transactions that are recorded on the network. To get the current state of our alliances led by Khaleesi and
+Cercei, we just queried all transactions with the key "Khalessi" or "Cercei", and checked what the content of
+the most recent transaction is.  
+
+All in all, 0bsNetwork is really a joy to develop with, because everything is understood easily, coded fast and working.
+However, on the explorer you can see that there are almost no transactions issued on mainnet and testnet (https://explorer.0bsnetwork.com/, as of June 2019).
+Compare that to Waves (https://wavesexplorer.com), where each block contains 10 to 100 transactions.
+The problem with 0bsNetwork definitely lies in the lack of usage of the network.
