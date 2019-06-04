@@ -4,3 +4,5 @@ https://docs.0bsnetwork.com/technical-details/data-transaction
 https://ide.0bsnetwork.com/
 .ride documentation
 https://docs.wavesplatform.com/en/ride/immutable-variables.html
+block explorer
+https://explorer.0bsnetwork.com/

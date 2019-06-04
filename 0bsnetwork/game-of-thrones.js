@@ -18,7 +18,7 @@ getData = async function (key) {
 exports.createAlliance = async function (alliance) {
   if(await getData(alliance)) {
     console.error("Alliance already exists")
-    return
+    return -1
   }
 
   const createAllianceData = {
@@ -32,18 +32,19 @@ exports.createAlliance = async function (alliance) {
   }
   const respone = await Zbs.API.Node.transactions.broadcast('data', createAllianceData, seed.keyPair)
   console.log(respone)
+  return 0
 }
 
 exports.addFamilyToAlliance = async function (alliance, family) {
   if(await getData(family)) {
     console.error("Family already exists")
-    return
+    return -1
   }
 
   var allianceData = await getData(alliance)
   if(!allianceData) {
     console.error("Alliance doesn't exist yet")
-    return
+    return -1
   }
 
   allianceData.push({
@@ -59,31 +60,32 @@ exports.addFamilyToAlliance = async function (alliance, family) {
 
   const respone = await Zbs.API.Node.transactions.broadcast('data', addFamilyData, seed.keyPair)
   console.log(respone)
+  return 0
 }
 
 exports.transferFamily = async function (fromAlliance, toAlliance, family) {
   var allianceFromData = await getData(fromAlliance)
   if(!allianceFromData) {
     console.error("Alliance doesn't exist yet")
-    return
+    return -1
   }
 
   var allianceToData = await getData(toAlliance)
   if(!allianceToData) {
     console.error("Alliance doesn't exist yet")
-    return
+    return -1
   }
 
   var familyData = await getData(family)
   if (!familyData) {
     console.error("Family doesn't exist yet")
-    return
+    return -1
   } else if (allianceFromData.findIndex(x => x.key === family) == -1) {
     console.error("Family isn't in alliance from which it should be removed")
-    return
+    return -1
   } else if (allianceToData.findIndex(x => x.key === family) != -1) {
     console.error("Family is already in alliance to which it should be transfered to")
-    return
+    return -1
   }
 
   const indexFamily = allianceFromData.findIndex(x => x.key === family)
@@ -100,4 +102,5 @@ exports.transferFamily = async function (fromAlliance, toAlliance, family) {
   allianceToData[indexAllianceTo].value = allianceToData[indexAllianceTo].value + 1
   respone = await Zbs.API.Node.transactions.broadcast('data', {data: allianceToData}, seed.keyPair)
   console.log(respone)
+  return 0
 }
