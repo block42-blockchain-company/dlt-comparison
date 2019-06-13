@@ -45,7 +45,7 @@ contract GameOfThrones {
   function transferFamily(string memory allianceNameFrom, string memory allianceNameTo, string memory familyName) public {
     int256 allianceIdFrom = getAllianceId(allianceNameFrom);
     int256 allianceIdTo = getAllianceId(allianceNameTo);
-    int256 familyId = getAllianceId(familyName);
+    int256 familyId = getFamilyId(familyName);
     require(allianceIdFrom != -1, "First alliance doesn't exist yet");
     require(allianceIdTo != -1, "Second alliance doesn't exist yet");
     require(familyId != -1, "Family to transfer doesn't exist yet");
