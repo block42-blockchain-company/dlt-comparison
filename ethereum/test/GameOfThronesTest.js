@@ -1,7 +1,4 @@
 const GameOfThrones = artifacts.require("GameOfThrones");
-//GameOfThrones.numberFormat = "String";
-/* const Example = artifacts.require("Example");
-Example.numberFormat = "BigNumber"; */
 const chai = require('chai')
 chai.use(require('chai-as-promised')).should();
 
@@ -11,20 +8,14 @@ var bnChai = require('bn-chai');
 chai.use(bnChai(BN));
 
 contract("GameOfThrones Tests", async accounts => {
-  /* let catchRevert = require("./exceptions.js").catchRevert;
-  const truffleAssert = require('truffle-assertions'); */
-
-
-  /* it("create alliance", async () => {
+  it("create alliance", async () => {
     let newAlliance = "RobStark";
     let contract = await GameOfThrones.deployed();
     let alliancesLength = await contract.getAlliancesLength();
     let khalessiId = await contract.getAllianceId("Khaleesi");
     let cerceiId = await contract.getAllianceId("Cercei")
 
-    //expect(new BN('1')).to.eq.BN(khalessiId);
-
-    await contract.addAlliance(newAlliance);  //, { from: "0x3594B36604A37C680f149E0A96A83bE39f97b0Db" }
+    await contract.addAlliance(newAlliance);
 
     let alliancesNewLength = await contract.getAlliancesLength();
     expect(Number(alliancesNewLength.toString())).to.equal(Number(alliancesLength.toString()) + 1);
@@ -38,12 +29,7 @@ contract("GameOfThrones Tests", async accounts => {
     let contract = await GameOfThrones.deployed();
     let alliancesLength = await contract.getAlliancesLength();
     await contract.addAlliance("Khaleesi").should.be.rejected; 
-    //await catchRevert(contract.addAlliance("Khaleesi"));
-    //await truffleAssert.reverts(contract.addAlliance("Khaleesi"), "Alliance to add already exists");
-    //await contract.addAlliance("Khaleesi");
-    //expect(await contract.addAlliance("Khaleesi")).to.eq.BN('1');
     let alliancesNewLength = await contract.getAlliancesLength();
-    //expect(alliancesNewLength).to.equal(alliancesLength);
     expect(alliancesNewLength).to.eq.BN(alliancesLength);
   });
   
@@ -86,7 +72,7 @@ contract("GameOfThrones Tests", async accounts => {
     await contract.addFamilyToAlliance("AllianceDoesntExist", "NewFamily").should.be.rejected;
     let alliancesNewLength = await contract.getAlliancesLength();
     expect(alliancesNewLength).to.eq.BN(alliancesLength);
-  }); */
+  });
 
   it("transfer family", async () => {
     let family = "Tarth";
@@ -103,12 +89,23 @@ contract("GameOfThrones Tests", async accounts => {
     let familiesNewLength = await contract.getFamiliesLength();
     expect(familiesNewLength).to.eq.BN(familiesLength);
 
-    let allianceOfFamilyId = await contract.familyToAlliance.call(familiesLength);
+    let allianceOfFamilyId = await contract.familyToAlliance.call(familiesLength - 1); // Off by one error?
     let tarthAlliance = await contract.alliances(allianceOfFamilyId);
     expect(tarthAlliance).to.equal(allianceCercei);
   });
 
   it("cannot transfer wrong family", async () => {
-    
+    let contract = await GameOfThrones.deployed();
+    let familyThatDoesNotExist = "Falco";
+    let allianceThatDoesNotExist = "Habsburger";
+    let familyThatExists = "Stark";
+    let allianceThatExists1 = "Khaleesi";
+    let allianceThatExists2 = "Cercei";
+    await contract.transferFamily(allianceThatExists1, allianceThatDoesNotExist, familyThatExists).should.be.rejected; 
+    await contract.transferFamily(allianceThatDoesNotExist, allianceThatExists1, familyThatExists).should.be.rejected; 
+    await contract.transferFamily(allianceThatExists1, allianceThatExists2, familyThatDoesNotExist).should.be.rejected;
+    await contract.transferFamily(allianceThatExists1, allianceThatExists1, familyThatDoesNotExist).should.be.rejected;
+
   });
+
 });
