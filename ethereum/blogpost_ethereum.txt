@@ -1,0 +1,31 @@
+What is a comparison of distributed ledger technologies without Ethereum? Right, garbage!
+So here there are, our insights we got by incorporating the seven kingdoms in Ethereum.
+
+Ethereum of course is the best known and most used platform for decentralized applications.
+Anyone who's interested in blockchain and DLT's in general knows about it, and most people
+who start getting their feet wet by fooling around with any blockchain code do it with Ethereum.
+It is a public blockchain that currently uses Proof-of-Work consensus with its native currency Ether. Anyone can mine, and anyone can 
+make transactions on it. Ethereum enables smart contracts to be executed by the runtime environment
+"Ethereum Virtual Machine".
+
+Implementation:
+We used the truffle suite for our implementation. The smart contract was
+coded in solidity, and tested with the frameworks mocha and chai. 
+Therefore tests are written in javascript, and can be tested with a local blockchain provided by Ganache, 
+a tool that's included in the truffle suite.
+We also deployed our Game of Thrones contract to the Ropsten Testnet with Truffle and Infura. 
+The whole process of writing the contract, to testing and to deploying to Ropsten was straight-forward,
+apart from a self-induced neat little off-by-one error along the way...
+
+Implementing the Game of Thrones use case in Ethereum was relatively easy, because
+we already had experience with it. Futhermore, there are a lot of tutorials, github threads
+and tools out there, that really help while developing. However, we realized that it
+was only "easy" to implement in Ethereum because we already had knowledge of solidity, mocha, truffle, metamask and so on.
+Additionally, we already knew what to expect, instead of stumbling across tools and dependencies 
+we didn't know we would need as it happened to us in other DLT's.
+So if you're a beginner in the blockchain field, the whole ecosystem is still hard to grasp at first, and needs some time.
+Ethereum is awesome because of its great and big community, and because of its wide spread adoption.
+Only issue are the fairly high transaction fees, which are undesirable for micropayments. Also the speed of transaction confirmation
+could be faster for specific use cases.
+As we look into the future, the introduction of Proof-of-Stake consensus and Sharding in Ethereum will 
+replace the resource intensive Proof-of-Work consensus and further enhance scaling possibilities.

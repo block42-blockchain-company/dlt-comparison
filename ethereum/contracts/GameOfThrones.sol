@@ -1,5 +1,5 @@
 pragma solidity >=0.5.0;
-// require damits weiterrennt. Die assertion muss true sein, damits weiterrennt. Z.B. require(1 == 1, "1 == 1");
+
 contract GameOfThrones {
   string[] public alliances;
   string[] public families;

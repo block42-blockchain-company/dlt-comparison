@@ -89,7 +89,7 @@ contract("GameOfThrones Tests", async accounts => {
     let familiesNewLength = await contract.getFamiliesLength();
     expect(familiesNewLength).to.eq.BN(familiesLength);
 
-    let allianceOfFamilyId = await contract.familyToAlliance.call(familiesLength - 1); // Off by one error?
+    let allianceOfFamilyId = await contract.familyToAlliance.call(familiesLength - 1); 
     let tarthAlliance = await contract.alliances(allianceOfFamilyId);
     expect(tarthAlliance).to.equal(allianceCercei);
   });
