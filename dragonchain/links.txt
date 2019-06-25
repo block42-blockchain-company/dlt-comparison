@@ -3,6 +3,7 @@ https://github.com/dragonchain-inc/dragonchain-sdk-node
 https://github.com/dragonchain-inc/custom-contract-node-sdk
 https://medium.com/@dragonchain/dragonchain-releases-improved-authentication-system-1276beac6b9
 https://dragonchain.com/assets/Dragonchain-Architecture.pdf
+https://python-sdk-docs.dragonchain.com/
 
 https://console.dragonchain.com/home/chain/53f11da9-eda5-4434-860a-de16e728b72d
 http://53f11da9-eda5-4434-860a-de16e728b72d.api.dragonchain.com
