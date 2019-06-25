@@ -1,0 +1,43 @@
+1,2,3,5,8,13,21,
+
+Yes we did it! We reviewed 6 distributed ledger technologies (DLT's),
+and implemented with each DLT a game of thrones use case. 
+The idea was to find out how easy it is to get a simple use case
+up and running on various DLT's. We wanted to implement the same use case in every DLT.
+Something a little bit more complex than just a simple 'Hello World!', so we have
+to tweak sample code according to our requirements. The requirements are based on
+game of thrones, because it should be possible to create alliances, like the alliance
+'Khaleesi' or 'Cercei', and to create and add families ('Stark', 'Lannister') to the alliances. 
+Hence, every alliance can have multiple families, and those families can be transfered
+between alliances in the case that they change sides. 
+That way we had to understand the basic concepts of how to build applications on the particular DLT.
+
+As most of the reviewed technologies are rather young, there isn't a whole
+lot of knowledge about them to find in the internet. What was key to an easy and
+straight forward implementation, was the documentation and tutorials for the 
+inspected DLT. However, often the documentation wasn't complete or something didn't
+work on our computers as described in the provided resources. In that case, we were
+very thankful for the chats of the DLT's. We were positively surprised that every
+DLT had a company driven chat on telegram, discord, gitter or something similar
+where our questions were answered directly from people responsible for the projects.
+Furthermore, no matter how good a documentation or a chat-answer is, the ease of 
+the setup was directly tied to the DLT itself. In the case of simple API-calls,
+the implementation was much easier than compared to having to set up a node or to learn
+a new DLT-specific language.
+
+In the following, we compared our inspected DLT's by 5 metrics: 
+- Novelty of the DLT
+- Complexity of its theory
+- Complexity of the setup
+- Quality of the documentation
+- Responsiveness in chats
+
+We also indicated whether the technology is a private (only permissioned users can join) 
+or public (everyone can join) network, and whether there's the possibility of storing
+sensible data without disclosing it to the public or encrypting it.
+
+Please note that we have a strong blockchain background, and already worked with
+DLT's like Ethereum. Therefore, big blockchain's like Bitcoin and Ethereum are state-of-the-art
+DLT's for us, and for us those blockchains are the base of novelty. We don't intend
+to say that Proof-of-Work or Proof-of-Stake blockchain is not a novel technology, 
+of course it is. But in our comparison we put them 

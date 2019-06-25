@@ -3,8 +3,8 @@ they state:
 "With high throughput, low latency, powerful query functionality, decentralized control, immutable data storage 
 and built-in asset support, BigchainDB is like a database with blockchain characteristics."
 So what is BigchainDB actually?
-BigchainDB is a database that stores data in tables decentrally using crypto qualities..
-That way, data can't be lost easyily or manipulated, but it can be queried fast like in a typical database.
+BigchainDB is a database that stores data decentrally in tables using crypto qualities..
+That way, data can't be lost easily or manipulated, but it can be queried fast like in a typical database.
 It is not a not blockchain where you can implement logic like the well known smart 
 contracts on, nor is it a decentralized 
 file storage like IPFS. It is an additional part in any development stack

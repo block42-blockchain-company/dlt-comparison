@@ -2,7 +2,7 @@ This is the GoT implementation with Holochain
 
 We use holochain-rust. If you never programmed with rust before, it is recommended to do a rust crash course beforehand, so you can differentiate between rust specific syntax and holochain specific syntax.
 
-To get started install everything as described in the quickstart tutorial: https://developer.holochain.org/start.html
+To get started, install everything as described in the quickstart tutorial: https://developer.holochain.org/start.html
 
 To build the desired *.dna.json file, open a terminal, cd into the game-of-thrones folder and run
 "hc package".

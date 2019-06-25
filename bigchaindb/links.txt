@@ -3,3 +3,4 @@ https://github.com/bigchaindb/js-bigchaindb-driver/issues/268  - change in dist 
 https://listenonrepeat.com/watch/?v=sKSz0C5p2rM&s=&e=#Raptwinz_-_Oida
 https://gitter.im/bigchaindb/bigchaindb
 https://github.com/bigchaindb/js-bigchaindb-driver/releases
+http://docs.bigchaindb.com/en/latest/private-data.html
