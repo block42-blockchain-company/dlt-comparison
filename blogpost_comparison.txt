@@ -1,5 +1,3 @@
-1,2,3,5,8,13,21,
-
 Yes we did it! We reviewed 6 distributed ledger technologies (DLT's),
 and implemented with each DLT a game of thrones use case. 
 The idea was to find out how easy it is to get a simple use case
@@ -25,8 +23,8 @@ the setup was directly tied to the DLT itself. In the case of simple API-calls,
 the implementation was much easier than compared to having to set up a node or to learn
 a new DLT-specific language.
 
-In the following, we compared our inspected DLT's by 5 metrics: 
-- Novelty of the DLT
+In the following, we compared and ranked our inspected DLT's by 5 metrics: 
+- Novelty of the Concept
 - Complexity of its theory
 - Complexity of the setup
 - Quality of the documentation
@@ -38,6 +36,63 @@ sensible data without disclosing it to the public or encrypting it.
 
 Please note that we have a strong blockchain background, and already worked with
 DLT's like Ethereum. Therefore, big blockchain's like Bitcoin and Ethereum are state-of-the-art
-DLT's for us, and for us those blockchains are the base of novelty. We don't intend
-to say that Proof-of-Work or Proof-of-Stake blockchain is not a novel technology, 
-of course it is. But in our comparison we put them 
+DLT's for us. When we talk about novelty of a concept, we indicate how advanced the
+technology behind a given DLT is compared to Ethereum. 
+We don't intend to say that Proof-of-Work (PoW) or Proof-of-Stake (PoS) blockchain is not a novel technology, 
+of course it is. But in our comparison we put Ethereum and similar DLT's at the low end of 
+our novelty ranking.
+The same goes for how complex the theory is. It means how hard it was to wrap our head around the concept. 
+Similar to the novelty factor, we already knew about PoW and PoS blockchains, therefore ranking
+the theory as not very complex.
+
+'Complexity of setup' marks how difficult we found it to implement our use case.
+Did we have a clear path to stroll over, or did we have to use our machete to cut 
+through a jungle? Ethereum was hard to rank, because we already had knowledge about it.
+The documentation and official tutorial quality manifests itself in the amount 
+of resources that wereprovided to the developers, as well as how easy it was to 
+get their sample code up and 
+running. In rare cases that there were also external unofficial tutorials about the DLT, 
+we said it also belongs to the documentation. Of course, Ethereum is by far the most
+documented DLT, without even counting in the countless tutorials and stackexchange threads.
+
+As already mentioned, we were very pleased about the chats provided by the companies
+of the DLT's. We asked questions in chats of every DLT except Ethereum, because for Ethereum there
+was already enough material to find on the net. All our questions were answered or
+acknowledged within a day, for some complicated theoretical answers we had to wait 2 days at maximum.
+The differences in our ranking stems from the speed of answers, and how useful they were
+to our stated problem. 0bsNetwork for example answered within a minute (!) with a solution
+to our issue, while Dragonchain also answered shortly, unfortunately their answers regarding
+the setup didn't really help us (but answers about theory were profound).
+Chats of the DLT's (the chats that we used, some DLT's have several):
+- Holochain: https://chat.holochain.org/appsup/channels/app-dev
+- BigchainDB: https://gitter.im/bigchaindb/bigchaindb
+- Hashgraph: https://discordapp.com/invite/FFb9YFX
+- Dragonchain: https://t.me/dragon_dev_official
+- 0bsNetwork: https://t.me/zbsDev
+
+At this point special thanks to
+- @bierlingm and @pauldaoust in the Holochain chat
+- @ttmc in the BigchainDB chat
+- @Craig Drabik, @Supremax67 and @Tim McHale in the Hashgraph chat
+- @JeffreyDutch and @j0j0r0 in the Dragonchain chat
+- @skVie and @JustJamesDev in the 0bsNetwork chat
+
+Finally, we come to the actual comparison table!
+Because it's hard to measure things like complexity of a setup, 
+we decided to rank the DLT's by the Fibonacci numbers 1, 2, 3, 5, 8, 13, 21, 34, 55, and 89 
+(https://en.wikipedia.org/wiki/Fibonacci_number). 
+The use of Fibonacci numbers in Scrum to estimate tasks (https://en.wikipedia.org/wiki/Planning_poker#Equipment)
+ seemed perfectly adaptle 
+for this comparison. That way, it's easier to differentiate between DLT's, because
+it's easier to decide whether it's an 8 or a 13 in a specific metric, instead of deciding between a 8 and 9.
+So the DLT that has the lowest score in a metric always starts 
+with 1, and DLT's with increasingly higher score are ranked with higher Fibonacci numbers.
+
+Here it is, all distributed ledger technologies compared to each other:
+
+//TABLE
+
+We hope that our series helped you to get a feel which DLT might be the best choice for
+your next project. Maybe you thought about playing around with a new DLT, or maybe 
+you just wanted to know about the current state of DLT's from a developer perspective.
+Either way, we hope that you found our series informative and you had some insights.
