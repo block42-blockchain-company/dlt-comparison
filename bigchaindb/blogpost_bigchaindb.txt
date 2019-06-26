@@ -45,3 +45,13 @@ The syntax of creating transactions has to be followed, other than that there we
 things to watch out for. Coding with BigchainDB is straight forward, no bad surprises.
 Writing and reading to the testnet is fast and works well.
 To test our code, we used the node testing framework mocha.js and the node assertion library chai.js.
+
+Pros:
+- an actual database that is decentrally stored (not file storage like IPFS or a mishmash of transactions)
+- easy to code
+- fast querying
+- an addition to a decentral development stack
+
+Cons:
+- not sure how connection of BigchainDB to decentral development stack would look like
+- "just" a database, therefore no smart contracts or any custom logic

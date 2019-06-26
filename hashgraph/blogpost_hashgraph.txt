@@ -51,3 +51,10 @@ we severely lacked understanding of how to interact meaningful with the sdk.
 Thankfully, the demos included in the sdk helped us a lot. Other than that, there wasn't much content on how
 to work with swirlds. We believe that this is because hashgraph is patented and its use is restricted. Serious developers probably
 think twice whether they want to develop with a technology which commercial use could be prohibited.
+
+Pros:
+- cool technology
+
+Cons:
+- patented, thus probably less community content
+- hard to code 

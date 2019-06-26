@@ -66,3 +66,15 @@ Every zome is compiled to WebAssembly, therefore one can write collaborating zom
 in many different programming languages, and not only rust.
 The zomes get compiled into a *.dna.json file, which contains the zomes code as WebAssembly.
 To test this dna file, we used the node testing framework Tape.js.
+
+Pros:
+- cool technology
+- scaleable
+- cheap
+- fast
+- not all data has to be stored on all nodes
+- privacy
+
+Cons:
+- new syntax to code zomes
+- for some dApps one consistent state across all nodes might be needed (requires additional layer on top of Holochain)

@@ -38,3 +38,11 @@ can be removed. That way, only the transaction header will be validated by level
 Firstly, this enables that you can prove to anyone that your data was unaltered when you disclose the data at a later point. 
 Secondly, it provides a convenient and possibly pay per use way to offer your data to other nodes via a subscription data fee.
 
+Pros:
+- cool new abstraction of blockchain (blockchain of blockchains)
+- connecting blockchains outside of dragonchain with dragonchain with interchain
+- privacy
+
+Cons:
+- can only set up a wallet after doing quizzes on the Dragonchain Academy website.
+- weren't able to implement with given documentations

@@ -18,7 +18,7 @@ This currency is needed to issue transactions, as the fees are paid in Zbs coins
 On the surface, the creation of blocks happens in the classic blockchain fashion. First collecting transactions from
 the mempool, then grouping them to blocks and distributing them in the network.  
 0bsNetwork enables to write and use smart contracts using the custom functional programming language RIDE.
-What is special, is that accounts and assets can be "smart" as well. This happens by adding a RIDE script to the assets
+What is special, is that the contract doesn't exist alone, but accounts and assets are "smart". This happens by adding a RIDE script to the asset
 or account. Each time the account interacts with the network or the asset is used, the rules in the attached script get executed.
 That way, it's easy to implement custom behaviour like a multisignature account, or an asset that e.g. can only be sent to 
 specific addresses in a specific time frame.  
@@ -40,3 +40,14 @@ All in all, 0bsNetwork is really a joy to develop with, because everything is un
 However, on the explorer you can see that there are almost no transactions issued on mainnet and testnet (https://explorer.0bsnetwork.com/, as of June 2019).
 Compare that to Waves (https://wavesexplorer.com), where each block contains 10 to 100 transactions.
 The problem with 0bsNetwork definitely lies in the lack of usage of the network.
+
+Pros:
+- easy to code
+- fast
+- cheap
+- can create tokens via Web-GUI 
+- smart assets and smart accounts 
+- mass transfer of tokens
+
+Cons:
+- new syntax of RIDE language that's used for the smart assets and accounts

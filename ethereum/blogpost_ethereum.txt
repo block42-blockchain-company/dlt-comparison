@@ -29,3 +29,14 @@ Only issue are the fairly high transaction fees, which are undesirable for micro
 could be faster for specific use cases.
 As we look into the future, the introduction of Proof-of-Stake consensus and Sharding in Ethereum will 
 replace the resource intensive Proof-of-Work consensus and further enhance scaling possibilities.
+
+Pros:
+- tons of documentation
+- well tested platform that works
+- strong community that develops both the blockchain protocol as well as decentralized Apps.
+- roadmap indicates that current issues will be solved in the near future (PoS, Sharding)
+
+Cons:
+- solidity and deployment of smart contracts is complicated
+- rather costly
+- rather slow
