@@ -1,0 +1,51 @@
+Ladies and Gentlemen!
+Welcome, to our brandnew series about various distributed ledger technologies (DLT's).
+Currently, there are many projects out in the open claiming that they will disrupt
+the industry. Unfortunately, many of them don't have a working alpha release yet,
+or don't deliver on the promises made. It was our goal, to filter out those frameworks 
+and platforms for decentral applications, that are useful and have the ability to add
+value to our lifes.
+
+First, we reviewed around 20 DLT's by reading their vision, theory and documentation.
+Then, of those 20 we chose 6 promising technologies to develop a minimalist use case on.
+We wanted to find out, how difficult it is to get a very simple program up and running
+on each DLT, and compare our findings in the end. 
+
+To make it somewhat comparable, we tried to implement the same use case in every DLT.
+The use case should be very minimalistic, but a little bit more difficult than a
+boilerplate 'Hello World' demonstration. Because we just had the finale this year,
+we decided to implement a use case that's based on - CLICKBAIT ALERT - 
+Game of Thrones!
+Don't get too excited, there's no Tyrion (yet).
+
+The requirements of the use case are simple:
+
+- 2 or more alliances are at war with each other.
+- An alliance consists of one or more families.
+- Due to intrigues and other events, families can change alliances.
+
+- We represent the alliances and the families as assets.
+- The possibility to create a family or an alliance is a transaction.
+- The attachment of a family to an alliance is a transaction.
+- The transfer of a family to another alliance is a transaction.
+
+This is the functionality that our use case has to display.
+
+As of writing this introduction, all DLT's are already tested. In the upcoming three months,
+we will regularly release individual articles about each DLT that we took a look at.
+The DLT's we reviewed are:
+- Holochain
+- BigChainDB
+- Hashgraph
+- Dragonchain
+- 0bsNetwork
+- Ethereum
+
+All code we used will be available on GitHub. In our implementations, we only tried to interact with the DLT's via 
+command line interface or code, and do not provide a user interface (UI).
+Please note, that even as we have a strong blockchain background, we are by no means experts in any
+of the reviewed DLT's (ok maybe ethereum..). 
+Probably our implementations could have been done much cleaner, simpler, and more efficient.
+However, the goal was to see whether the effort to implement real world use cases on those DLT's is reasonable.
+
+So, stay tuned, stay stable, and we'll see each other in the upcoming articles!
