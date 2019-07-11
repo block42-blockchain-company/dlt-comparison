@@ -1,0 +1,64 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Write your model definitions here
+ */
+
+namespace com.got.alliance
+
+import com.got.family.Family
+
+asset Alliance identified by allianceId {
+  o String allianceId
+  o String name
+  --> Family[] families 
+}
+
+transaction CreateAlliance {
+  o String allianceId
+  o String name
+  --> Family[] families 
+}
+
+transaction AddFamilyToAlliance {
+  o String allianceId
+  o String familyId
+  o String name
+}
+
+transaction TransferFamily {
+  o String currentAllianceId
+  o String newAllianceId
+  o String familyId
+}
+
+
+event AllianceCreated {
+  o String allianceId
+  o String name
+  --> Family[] families  
+}
+
+event FamilyAdded {
+  --> Alliance alliance
+  --> Family family
+}
+
+event FamilyTransferred {
+  --> Alliance oldAlliance
+  --> Alliance newAlliance
+  --> Family family
+}
+

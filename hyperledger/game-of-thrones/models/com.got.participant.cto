@@ -1,0 +1,11 @@
+namespace com.got.participant
+
+concept Contact {
+  o String name
+  o String email
+}
+
+participant GameOfThronesParticipant identified by participantKey {
+  o String participantKey
+  o Contact contact
+}

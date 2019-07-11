@@ -1,0 +1,15 @@
+namespace com.got.family
+
+import com.got.alliance.Alliance
+
+asset Family identified by familyId {
+  o String familyId
+  o String name
+  --> Alliance alliance
+}
+
+event FamilyCreated {
+  o String familyId
+  o String name
+  --> Alliance alliance
+}
