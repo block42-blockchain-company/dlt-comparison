@@ -31,7 +31,7 @@ The requirements of the use case are simple:
 
 This is the functionality that our use case has to display.
 
-As of writing this introduction, all DLT's are already tested. In the upcoming three months,
+As of writing this introduction, all chosen DLT's are already tested. In the upcoming three months,
 we will regularly release individual articles about each DLT that we took a look at.
 The DLT's we reviewed are:
 - Holochain
