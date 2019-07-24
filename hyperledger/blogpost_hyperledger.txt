@@ -1,0 +1,79 @@
+Our ledgers are hot, our ledgers are smart, and now our ledgers are hyper!
+Welcome to the hyperledger part of our series.
+Hyperledger is an umbrella project hosted by the Linux Foundation.
+In their terms "it is an open source collaborative effort created to advance cross-industry blockchain technologies".
+In December 2015 it started and received contributions from big companies like IBM or Intel.
+Rather than a single distributed ledger technology, Hyperledger is a hub for business 
+blockchain frameworks and tools with variant goals.
+Take a look at the following picture from their official website, to get a feel for the "Hyperledger Greenhouse":
+PICTURE
+
+One of the most popular combinations are Hyperledger Fabric with Hyperledger Composer.
+This combination is what we used for our game of thrones use case. 
+Hyperledger Fabric got a lot of recognition because it was initially contributed by Digital Asset and IBM.
+It has a modular architecture with interchangeable components such as consensus and membership services.
+While Fabric gives us the bricks and the nails for a great project, 
+composer gives us hammer and screwdriver for efficient development.
+
+Technical overview of Hyperledger Fabric:
+Hyperledger Fabric is a permissioned blockchain framework. It facilitates smart contracts in
+the form of chaincode, which function as the business logic.
+Admins of the Fabric network can instantiate and later update existing chaincode.
+A process of 3 phases exists to add a transaction to the ledger: Endorsement, Ordering, and Validation.
+* Endorsement: Endorsing peers execute the chaincode to simulate the transaction, and sign it if valid. 
+                The associated endorsement policy specifies how many signatures of endorsing peers are needed.
+* Ordering: In this phase it is determined in which order endorsed transactions get added to the 
+            ledger by putting them into a batch/block.
+* Validation: Comitting peers make sure that the endorsement policy is met, and check
+              the validity of the simulated transactions.
+
+To fully understand the process, we recommend to check out the illustrated examples on the official websites
+here (point 2 https://developer.ibm.com/tutorials/cl-top-technical-advantages-of-hyperledger-fabric-for-blockchain-networks/) or here (section Consensus in Hyperledger Fabric https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf).
+
+As Hyperledger fabric is a permissioned blockchain, it is distributed across its members. 
+A member is typically a company. Each company manages its own Certificate Authority, to issue and 
+authenticate public-key certificates inside its own structure. The certificates are needed for the
+endorsing and comitting peers.
+For the ordering service in the ordering phase, any ordering logic can be used as Fabric is intended as
+plug-and-play. Out of the box Fabric uses Kafka(link) as its ordering service.
+
+Fabric is meant for business applications. A lot of business applications need to work with
+confidential data, and there's a need for a *permission system*. Fabric succesfully enables this,
+as access to transactions and state can be restricted to specific identities. If needed, only holders
+of specified roles can read or write particular data. To enable confidential communication or exchange of value
+between two companies, there's the possibility of creating a private channel between those parties.
+This way, a subset of parties inside a blockchain network can share channels, while other members 
+do not have access to those. 
+
+Implementation:
+For our game of thrones idea we used Hyperledger Fabric in combination with Hyperledger Composer
+as mentioned above. Furthermore, we made use of the corresponding playground, which makes it possible
+to test chaincode without setting up the network of nodes yourself. 
+To create a skeleton of a so called business network, we used the Yeoman generator. In addition, we made 
+use of the npm composer module. With this npm module one can create the .bna file that is 
+needed for the playground, and with its help one can instantiate a local business network and interact with it.
+For the chaincode itself, the developer needs to write 'model' files ending with .cto and logic files
+in javascript. Models use a special syntax to describe assets and the corresponding transactions.
+The logic defined in javascript describes programmatically how the functions defined in the model interact with
+the assets.
+As all of this provides a fair bit of redundancy, minor bugs can happen easily. 
+Once the logic was written, we compiled it with the composer modules to a .bna (business network application) file, 
+which we could upload to the playground. There we made our initial tests to see if Khaleesi receives the 
+respect she deserves. For automated unit tests, we used the embedded runtime, with which one can quickly test 
+the code in a simulated Node.js blockchain environment. With the embedded 
+runtime as well as the testing frameworks mocha and chai, we wrote our tests in javascript and executed
+them with node.
+
+Pros:
+* hosted by the Linux foundation
+* Fabric developed by IBM, a strong team
+* lot of usage, and a lot of documentation
+* ready for use
+* Permission system, Privacy
+
+Cons:
+* theory more complicated compared to other DLT's
+* coding complicated, lots of code needed for simple logic
+* setup of the network and maintainance complicated
+* Not that decentralized, as only signatures of validator/comitting peers are important
+* There is no true consensus if Kafka is used. That means there isn't enforced, democratized, and cryptographically secure voting between participants.
