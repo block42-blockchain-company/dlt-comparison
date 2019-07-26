@@ -1,10 +1,11 @@
-Name,       Type,   Novelty of concept,  Complexity of Theory, Complexity of Setup,  Quality of Documentation, Responsiveness of Chats,  Possibility for Privacy
-Holochain,  both,            13,            5,                    8,                    13,                          2,                       yes
-BigchainDB, private,          2,            3,                      2,                    8,                          2,                      no
-Hashgraph,   both,           13,            8,                      13,                   2,                           2,                       no
-Dragonchain,hybrid,           3,            5,                      ?,                   1,                           1,                      yes
-0bsNetwork, public,           1,            1,                      1,                    8,                          3,                      no
-Ethereum,   public,           1,            1,                      5,                    89,                         ?,                      no
+Name,                         Type,   Novelty of concept,  Complexity of Theory, Complexity of Setup,  Quality of Documentation, Responsiveness of Chats,  Possibility for Privacy
+Holochain,                    both,            13,            5,                    8,                    13,                          2,                       yes
+BigchainDB,                   private,          2,            3,                      2,                    8,                          2,                      no
+Hashgraph,                    both,           13,            8,                      13,                   2,                           2,                       no
+Dragonchain,                  hybrid,           3,            5,                      ?,                   1,                           1,                      yes
+0bsNetwork,                   public,           1,            1,                      1,                    8,                          3,                      no
+Hyperledger Fabric + Composer,private,          5,            8,                      13,                    21,                         ?,                      yes
+Ethereum,                     public,           1,            1,                      5,                    89,                         ?,                      no
 
 
 1,2,3,5,8,13,21,34,55,89

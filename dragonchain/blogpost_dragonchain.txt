@@ -43,7 +43,7 @@ To interact with the dragonchain ecosystem, one first needs to have a dragonchai
 This was harder than expected, because first we had to pass quizzes on the official dragonchain
 academy website. With this wallet, we could issue a new chain for our game of thrones idea, and
 start working with the sdk's. We tried to follow the official tutorials to work with dragonchain 
-using javascript (https://medium.com/@paul.plessing/comparing-dlts-by-got-use-case-hyperledger-fabric-composer-613782b7d529) as well as
+using javascript (https://github.com/dragonchain-inc/custom-contract-node-sdk) as well as
 using python (https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain).
 Sadly, we weren't able to get any of these tutorials to run. That means, that we weren't able
 to use dragonchain, even though we obeyed exactly what they wrote in the tutorials.
@@ -114,7 +114,7 @@ https://python-sdk-docs.dragonchain.com/testing/#
 Very nice of him. Unfortunately, this link never worked...
 
 So here we are, not being able to implement official tutorials. I'm pretty sure that there
-was just a simple mistake by us that held us back from successfully using dragonchain.
+was just a simple mistake we made that held us back from successfully using dragonchain.
 But because we already spent too much time doing quizzes and trying to figure out the
 documentations, we decided to leave this project alone.
 
