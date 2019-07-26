@@ -38,11 +38,91 @@ can be removed. That way, only the transaction header will be validated by level
 Firstly, this enables that you can prove to anyone that your data was unaltered when you disclose the data at a later point. 
 Secondly, it provides a convenient and possibly pay per use way to offer your data to other nodes via a subscription data fee.
 
+Implementation:
+To interact with the dragonchain ecosystem, one first needs to have a dragonchain wallet.
+This was harder than expected, because first we had to pass quizzes on the official dragonchain
+academy website. With this wallet, we could issue a new chain for our game of thrones idea, and
+start working with the sdk's. We tried to follow the official tutorials to work with dragonchain 
+using javascript (https://medium.com/@paul.plessing/comparing-dlts-by-got-use-case-hyperledger-fabric-composer-613782b7d529) as well as
+using python (https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain).
+Sadly, we weren't able to get any of these tutorials to run. That means, that we weren't able
+to use dragonchain, even though we obeyed exactly what they wrote in the tutorials.
+In the tutorial with javascript, there were typos, and even after figuring out some issues ourselves
+and reading some data, we couldn't post a smart contract.
+We tried to find help in the dragonchain developer chat on telegram. The very friendly
+@TabanCosmos told me to message him directly if any problems would occur. We did by telling
+him about exactly all our problems in the following two messages:
+
+Hi Cosmos!
+You said that I should tell you if something is unclear. Well there is something unclear with https://github.com/dragonchain-inc/custom-contract-node-sdk
+
+1. <git clone https://github.com/dragonchain-inc/custom-contract-node-sdk/tree/master> doesn't work on my end, had to omit the last part "/tree/master"
+2. <docker build -t image_name.>  doesn't work because between image_name and the dot has to be a space as in <docker build -t image_name .> I didn't know this as a non docker user.
+3. I had no idea about how to use image_names and pushing them to docker without my own research.
+4. <
+const dragonchainClient = require('dragonchain-sdk');
+const main = async () => {
+   const client = await dragonchainClient.createClient({
+        dragonchainId: 'your_dc_id',
+        authKeyId: 'your_authkeyId',
+        authKey: 'your_authkey',
+        endpoint: 'https://your_dc_id.api.dragonchain.com'
+    });
+
+    /// Do everything here
+
+}> 
+this code didn't work on my end, got "(node:24552) UnhandledPromiseRejectionWarning: TypeError: dragonchainClient.createClient is not a function"
+
+5. got 4 to work with "const sdk = require('dragonchain-sdk');
+const DragonchainClient = sdk.DragonchainClient;
+const dragonchainClient = new DragonchainClient(apiKeys.chain_id);
+dragonchainClient.overrideCredentials(apiKeys.auth_key_id, apiKeys.auth_key); 
+
+6. Can't post a smart contract as in <const createResponse = await client.createSmartContract({
+    transactionType: "contract_name",
+    image: 'image_name'
+    cmd: 'node',
+    args: ['index.js'],
+    execution_order: 'parallel',
+});>
+because a comma ',' is missing after image: 'image_name'
+
+7. after adding the comma in 6, I still can't execute, and the error is: "(node:25917) UnhandledPromiseRejectionWarning: TypeError: client.createSmartContract is not a function"
+
+In the Dev Chat you wrote that the documentations for dragonchain were updated. In https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain and https://github.com/dragonchain-inc/custom-contract-node-sdk I see that the README was updated around the time you stated that the documentation was updated. In https://github.com/dragonchain-inc/dragonchain-sdk-node however the update date of the README is longer ago, hence I guess it wasn't updated?
+
+Problem in general, I can't post a smart contract on dragonchain, as stated in issue 6. 
+I'll take a look at the updated python documentation now, and try to get it to run there! 🙂
+
+-----
+
+Now I tried getting https://github.com/dragonchain-inc/guide-to-develop-on-dragonchain to work. I pushed my docker image as suggested, and edited the index.py according to the documentation. Unfortunately when I hit "python3 index.py", I only get this error: "AttributeError: module 'dragonchain_sdk' has no attribute 'Client'"
+
+Am I doing it wrong when I try to run the python files with python3, and the javascript files with node? Do I have to execute the code somehow else? Because on the documentation sites there's no complete step by step walkthrough and it's never specified how to execute the code, only the code is stated. 
+
+Sincerely, 
+Paul
+
+He acknowledged the issues and replied:
+
+Thank you Paul. I am gonna take a look at it today when I get time and address it.
+
+Try this.
+https://python-sdk-docs.dragonchain.com/testing/#
+
+Very nice of him. Unfortunately, this link never worked...
+
+So here we are, not being able to implement official tutorials. I'm pretty sure that there
+was just a simple mistake by us that held us back from successfully using dragonchain.
+But because we already spent too much time doing quizzes and trying to figure out the
+documentations, we decided to leave this project alone.
+
 Pros:
-- cool new abstraction of blockchain (blockchain of blockchains)
-- connecting blockchains outside of dragonchain with dragonchain with interchain
-- privacy
+- Cool new abstraction of blockchain (blockchain of blockchains)
+- Connecting blockchains outside of dragonchain with dragonchain via interchain
+- Privacy
 
 Cons:
-- can only set up a wallet after doing quizzes on the Dragonchain Academy website.
-- weren't able to implement with given documentations
+- Can only set up a wallet after doing quizzes on the Dragonchain Academy website.
+- Weren't able to implement with given documentations

@@ -65,8 +65,8 @@ runtime as well as the testing frameworks mocha and chai, we wrote our tests in 
 them with node.
 
 Pros:
-* hosted by the Linux foundation
-* Fabric developed by IBM, a strong team
+* Hypereledger is hosted by the Linux foundation
+* Hyperledger Fabric is developed by IBM, a strong team
 * lot of usage, and a lot of documentation
 * ready for use
 * Permission system, Privacy
@@ -76,4 +76,4 @@ Cons:
 * coding complicated, lots of code needed for simple logic
 * setup of the network and maintainance complicated
 * Not that decentralized, as only signatures of validator/comitting peers are important
-* There is no true consensus if Kafka is used. That means there isn't enforced, democratized, and cryptographically secure voting between participants.
+* There is no true consensus if Kafka is used. That means there isn't enforced, democratized, and cryptographically secure voting between parties.
