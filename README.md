@@ -22,6 +22,7 @@ We only try to interact with the DLT via command line interface (cli) or code, a
 
 The to be analyzed distributed ledger technologies are:
 
+* ICON
 * Holochain
 * BigChainDB
 * Hashgraph
